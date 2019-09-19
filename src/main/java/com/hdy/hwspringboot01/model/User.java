@@ -1,12 +1,23 @@
 package com.hdy.hwspringboot01.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
 /**
  * @author m760384371
  * @date 2019/9/18
  */
+@Entity
+@Table(name="user")
+@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private String id;
+
     private String username;
     private String password;
 
